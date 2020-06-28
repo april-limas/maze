@@ -1,0 +1,35 @@
+#maze {
+    width: 800px;
+    height: 600px;
+    background: pink;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.row {
+    flex-grow: 1;
+    display: flex;
+}
+
+.block {
+    flex-grow: 1;
+
+}
+
+.wall {
+    background: darkslateblue;
+}
+
+.player {
+    width: 38.09px;
+    height: 40px;
+    background: url("butterfly.gif") center/cover;
+    position: absolute;
+    top: 360px;
+}
+
+.finish {
+    background: red;
+}
