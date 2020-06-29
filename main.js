@@ -18,8 +18,8 @@ const map = [
 
 let maze = document.getElementById("maze")
 let player = document.createElement("div")
-let playerRowPos
-let playerColPos
+let playerRowPos = 9
+let playerColPos = 0
 let topPos = 360
 let leftPos = 0
 let finishRowPos
@@ -49,34 +49,64 @@ function createMaze (blueprint) {
                 }
             maze.innerHTML += `<div class="row">${block}</div>`    
             }
-        player.className = "player"
+        player.classList.add("player","butterfly")
         maze.append(player)  
 }
 createMaze(map) 
 
 
-// let up = map[rowPosition - 1][colPosition]
-// let down = map[rowPosition + 1][colPosition]
-// let left = map[rowPosition][colPosition - 1]
-// let right = map[rowPosition][colPosition + 1]
+// let up = map[playerRowPos - 1][playerColPos]
+// let down = map[playerRowPos + 1][playerColPos]
+// let left = map[playerRowPos][playerColPos - 1]
+// let right = map[playerRowPos][playerColPos + 1]
 
 
 function movePlayer(e) {
     if (e.code === "ArrowDown") {
-        topPos += 40 
+        let down = map[playerRowPos + 1][playerColPos]
+        if (down !== "W") {
+            topPos += 40 
+            playerRowPos++
+            
+        }
     } else if (e.code === "ArrowUp") {
-        topPos -= 40
+        let up = map[playerRowPos - 1][playerColPos]
+        if (up !== "W") {
+            topPos -= 40
+            playerRowPos--
+        }
     } else if (e.code === "ArrowLeft") {
-        leftPos -= 38.09
+        let left = map[playerRowPos][playerColPos - 1]
+        if (left !== "W") {
+            leftPos -= 38.09
+            playerColPos--
+        }
     } else if (e.code === "ArrowRight") {
-        leftPos += 38.09
+        let right = map[playerRowPos][playerColPos + 1]
+        if (right !== "W") {
+            leftPos += 38.09
+            playerColPos++
+
+            if (playerRowPos === finishRowPos && playerColPos === finishColPos) {
+                setTimeout( function() {
+                    let bannerOverlay = document.createElement("div")
+                    bannerOverlay.className = "win"
+                    bannerOverlay.innerHTML = 
+                        `<div class="text">
+                        <h2>Perfect!</h2>
+                        <p>You completed the maze</p>
+                        <div><a href="index.html">Play again</a></div>
+                        </div>`
+                    document.body.append(bannerOverlay)
+                }, 300)
+            } 
+        }
     }
     player.style.top = topPos + "px"
     player.style.left = leftPos + "px"
 }
 
 document.addEventListener("keydown", movePlayer)
-
 
 
 

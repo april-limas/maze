@@ -1,8 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: pink;
+}
+
+h1 {
+    font-family: 'Leckerli One', cursive;
+    font-size: 60px;
+    color: purple;
+    text-shadow: 3px 3px 1px plum;
+    text-align: center;
+    margin-top: 38px;
+}
+
+
 #maze {
     width: 800px;
     height: 600px;
-    background: pink;
-    margin: 100px auto;
+    background: rgb(248, 213, 219);
+    margin: 35px auto;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -19,17 +39,79 @@
 }
 
 .wall {
-    background: darkslateblue;
+    background: url("images/bush.png") center/cover;
+ 
+}
+
+.finish {
+    background: url("images/flower.png") center/cover;
 }
 
 .player {
     width: 38.09px;
     height: 40px;
-    background: url("butterfly.gif") center/cover;
+    background: url("images/butterfly.gif") center/cover;
     position: absolute;
     top: 360px;
+    
 }
 
-.finish {
-    background: red;
+.butterfly {
+    animation: butterfly 2s ease-in;
+
 }
+
+@keyframes butterfly {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    80% {
+        transform: scale(2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.win {
+    width: 700px;
+    height: 700px;
+    background: linear-gradient(rgba(186, 2, 152, 0.8), rgba(186, 2, 152, 0.8));
+    font-family: 'Leckerli One', cursive;
+    color: rgb(248, 213, 219);
+    text-align: center;
+    font-size: 52px;
+    margin: 86px auto;
+    position: absolute;
+    top: -4%;
+    left: 26%;
+    z-index: 2;
+}
+
+.win a {
+    color: white;
+    text-decoration: none;
+    color: rgb(248, 213, 219);
+}
+
+.win a:hover {
+    border-bottom: 5px solid rgb(248, 213, 219);
+}
+
+.win div>a {
+    position: relative;
+    top: 100px;
+    line-height: 100px;
+}
+
+.text {
+    margin: 120px auto;
+}
+
+
