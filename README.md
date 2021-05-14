@@ -10,8 +10,3 @@ Development Plan:
 
 3. Create a winning condition
     a. The game is over when the player div has the same position as the finish div.
-
-
-
-
-Check out the maze here: https://april_limas.gitlab.io/maze/
