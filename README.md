@@ -1,12 +1,19 @@
-Development Plan: 
+# Butterfly Maze
 
-1. Create maze
-    a. Create a function to create a maze using the provide map array.
-    b. Use nested loops inside the function to create row divs and column divs for every iteration
+A game where a player moves the butterfly through the garden to reach the rose bush using the arrow keys.
 
-2. Player div should be able to move around the maze using arrow keys.
-    a. Create a keydown event listener to move the player div around the maze.
-    b. Create a condition so the player div can't move through walls
+# What I Learned
 
-3. Create a winning condition
-    a. The game is over when the player div has the same position as the finish div.
+- Built the game using Javascript
+- DOM Event Listeners
+- Nested Loops
+- Conditional Statements
+- CSS Animations
+    
+<br />
+
+<img src="https://github.com/april-limas/maze/blob/master/images/maze1.png" width='600' height='400'>
+
+<br />
+
+<img src="https://github.com/april-limas/maze/blob/master/images/maze2.png" width='600' height='400'>
